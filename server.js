@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-    res.redirect("/index");
+    res.redirect("/index.html");
 });
 
 app.get('/index', function(req, res) {

@@ -9,6 +9,11 @@
       "id": 2,
       "titre": "Article 2",
       "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi vel itaque pariatur. Inventore fugiat, repellat accusamus voluptas nihil mollitia dolores debitis, obcaecati iure nostrum magnam."
+    },
+    {
+      "id": 3,
+      "titre": "coucoucou",
+      "content": "poop"
     }
   ]
 }
