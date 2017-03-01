@@ -26,7 +26,13 @@
     <a href="/">Accueil</a>
 
 
-
+    <form action="/post/article" method="POST">
+        <label for="">Titre :</label>
+        <input type="text" name="title" value="Article 1"><br>
+        <label for="">Contenu</label>
+        <textarea rows="4" cols="10" name="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi vel itaque pariatur. Inventore fugiat, repellat accusamus voluptas nihil mollitia dolores debitis, obcaecati iure nostrum magnam.</textarea><br>
+        <button type="submit" id="send">Send</button>
+    </form>
 
 
 </body>

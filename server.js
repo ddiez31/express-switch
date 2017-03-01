@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var datajson = require('./data/articles.json')
 
+app.use(bodyParser.json())
+
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 
 app.use(function(req, res, next) {
@@ -29,6 +32,33 @@ app.get('/formulaire', function(req, res) {
 app.get('/data', function(req, res) {
     res.send(datajson);
 });
+
+app.post('/post/article', function(req, res) {
+    fs.readFile('./data/articles.json', 'utf-8', function(err, data) {
+        if (err) {
+            throw err
+        };
+        var database = JSON.parse(data)
+        var article = req.body;
+        console.log(article)
+        var len = database.articles.length;
+        // article.id = len + 1;
+
+        database.articles.push({ id: len + 1, titre: article.title, content: article.content });
+
+        var newDatabase = JSON.stringify(database, null, 2)
+
+        console.log(newDatabase);
+
+        fs.writeFile('./data/articles.json', newDatabase, function(err) {
+            if (err) {
+                console.log(err)
+            }
+        });
+    });
+    res.send("article posté")
+});
+
 
 app.listen(3000, function() {
     console.log('Example app listening on port 3000!');
